@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <style>
+        .box{
+            width: 400px;
+            margin-top: 50px;
+            background-color: transparent;
+            box-shadow: 5px 5px 5px 5px gray;
+
+        }
+        body{
+            background-image: url("{% static 'images/imm.png' %}");
+                background-size: contain;
+                background-size: cover;
+           }
+           .ip{
+            margin-bottom: 20px;
+            width: 100%;
+            padding: 5px 5px;
+            border: none;
+            border-radius: 5px;
+           }
+    </style>
+</head>
+<div class=" box jumbotron container">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input class="ip" type="text" name="name" placeholder="Enter your Name"><br>
+        <input class="ip" type="date" name="dob" placeholder="Enter DOB"><br>
+        <input class="ip" type="text" name="mobile" placeholder="Enter Mobile Number"><br>
+        <input class="ip" type="email" name="email" placeholder="Enter Email"><br>
+        <input class="ip" type="File" name="resume" placeholder="Upload Resume"><br>
+        <select name="gender" id="" class="ip">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br>
+        <select name="company" id="" class="ip">
+            {% for company in company %}
+            <option name="company" value="{{company.name}}">{{company.name}}</option>
+            {% endfor %}
+        </select><br>
+        
+        <input type="submit" class="btn btn-success btn-sm ip" value="submit">
+    </form>
+</div>
+{% endblock %}

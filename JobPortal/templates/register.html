@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+    <style>
+        .maindiv {
+            width: 400px;
+            border: 1px solid rgba(255, 255, 255, 0);
+            box-shadow: 5px 5px 5px 5px gray;
+            margin: 50px auto;
+        }
+
+        body {
+            background-image: url("{% static 'images/imm.png' %}");
+            background-size: contain;
+            background-size: cover;
+        }
+
+        .form {
+            background: transparent;
+            text-align: center;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 3px;
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        .reg:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<div class="maindiv">
+    <div class="jumbotron container" style="background-color: transparent;">
+        <form method="POST" action="" class="form">
+            {% csrf_token %}
+            <p><input type="text" name="username" placeholder="Username..."></p>
+            <p><input type="email" name="email" placeholder="Email..."></p> <!-- Add this line -->
+            <p><input type="password" name="password" placeholder="Password..."></p>
+            <input class="btn btn-success" type="submit" value="Register" style="margin-bottom: 20px;">
+            <p>Already have an account<a href='{% url "login" %}' class="reg"> Login</a></p>
+        </form>
+    </div>
+</div>
+{% endblock %}

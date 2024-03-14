@@ -1,0 +1,87 @@
+{% extends 'main.html' %}
+{% load static%}
+
+{% block content %}
+<style>
+    body {
+        background: url("{% static 'images/imm.png' %}");
+    }
+
+    .container.card {
+        border-radius: 5px;
+        margin-top: 20px;
+        background-color: #fff; /* Set a background color for the container */
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    }
+
+    table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd; /* Add a border to the table */
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+    }
+    h1{
+        font-family: 'Times New Roman', Times, serif;
+        
+    }
+    tr:hover{
+        background-color: red;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd; /* Add borders between table rows */
+    }
+
+    th {
+        background-color: #f2f2f2; /* Set a background color for table headers */
+    }
+
+    tr:hover {
+        background-color: #f5f5f5; /* Change background color on hover */
+    }
+
+    .btn-apply {
+        background-color: #5bc0de; /* Customize the 'Apply' button color */
+        color: #fff; /* Set text color to white */
+    }
+    img{
+        width: 100px;
+        
+    }
+</style>
+
+<div class="container card" style="border-radius: 5px;">
+    <img align="right" src="{% static 'images/logo5.png' %}"><h1>Available openings </h1>
+    <div class="card-body">
+        <table class="table table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Description</th>
+                <th>Salary</th>
+                <th>Experience</th>
+                <th>Location</th>
+                <th>Join</th>
+            </tr>
+            {% for c in companies %}
+                <tr>
+                    <td>{{c.name}}</td>
+                    <td>{{c.position}}</td>
+                    <td>{{c.description}}</td>
+                    <td>{{c.salary}}</td>
+                    <td>{{c.experience}}</td>
+                    <td>{{c.Location}}</td>
+                    <td><a href="{% url 'apply' %}" class="btn btn-info btn-sm" type="submit">Apply</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+       
+{% endblock %}

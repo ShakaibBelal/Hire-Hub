@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
+    <title> Hire Hub</title>
+    <style>
+        .company{
+            width: 400px;
+            box-shadow: 5px 5px 5px 5px gray;
+            margin: 50px auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .company input{
+            padding: 3px;
+            margin-bottom: 5px;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .company label{
+            display: block;
+        }
+
+        .company button{
+            background-color: #28a745;
+            color: white;
+            border:none;
+            margin-top: 20px;
+            border-radius: 5px;
+            padding: 5px 5px;
+            width: 100%;
+        }
+        .company select{
+            
+            border:none;
+            border-radius: 5px;
+            padding: 5px 5px;
+            width: 100%;
+        }
+    </style>
+    
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <br>
+	<br>
+    {%block content%}
+    
+    {% endblock %}
+</body>
+</html>

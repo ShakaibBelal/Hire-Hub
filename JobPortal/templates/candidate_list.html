@@ -1,0 +1,71 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        background: url("{% static 'images/imm.png' %}");
+    }
+
+    .container.card {
+        border-radius: 5px;
+        margin-top: 20px;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .btn-apply {
+        background-color: #5bc0de;
+        color: #fff;
+    }
+</style>
+
+<div class="container card" style="border-radius: 5px;">
+    <h1>Applied candidates For {{ company.name }}</h1>
+    <div class="card-body">
+        <table class="table table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Dob</th>
+                
+            </tr>
+            {% for candidate in candidates %}
+                <tr>
+                    <td>{{ candidate.name }}</td>
+                    <td>{{ candidate.email }}</td>
+                    <td>{{ candidate.mobile }}</td>
+                    <td>{{ candidate.gender }}</td>
+                    <td>{{ candidate.dob }}</td>
+                    
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
